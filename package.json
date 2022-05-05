@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://makonis.visualstudio.com/Streamboxy/_git/StreamboxyAddIns"
+    "url": "https://github.com/streamboxy/AddIns"
   },
   "files": [
     "**/*"
@@ -29,7 +29,7 @@
     "Platform"
   ],
   "author": "MAKONIS GmbH",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/jsdom": "^16.2.13",
