@@ -1,6 +1,6 @@
 {
   "name": "@streamboxypublic/add-ins",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Integrates your application into Streamboxy Core.",
   "main": "index.js",
   "types": "index.d.ts",
