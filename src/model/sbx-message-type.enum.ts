@@ -8,7 +8,6 @@ export enum SBXMessageType {
     'UserContext',
     'SessionData',
     'Command',
-    'UserToken',
     'TenantContext',
     'BackstageStyle'
   }
