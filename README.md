@@ -1,7 +1,7 @@
 # Add-Ins 
 
 ## General informations and data model
-You will find the general informations to the STREAMBOXY AddIn Model and the data model of the events at the STREAMBOXY Docs here:
+You will find the general informations to the STREAMBOXY AddIn Model, the data model of the events and the VanillaJS Documentation at the STREAMBOXY Docs here:
 https://service.streamboxy.com/support/solutions/articles/50000087752-interaction-using-addin-events-commands
 
 
@@ -18,7 +18,7 @@ I.e. Navigation to different Sessions within an event: https://github.com/stream
 
 
 ### Preparation of Cross-Domain Communication
-Integrating into STREAMBOXY Core utilizes Cross-Domain Communication. To do this in a secure manner both STREAMBOXY Core and your AddIn need to know each other's domains. STREAMBOXY Core attaches an URL Search Parameter to every Content URL to provide a content page with its currently loaded STREAMBOXY Core origin. To access this information, our Add-In packages provides a helper class. If you use Vanilla JS, you can access the param by yourself. Please use the provided code snippets to get started.
+Integrating into STREAMBOXY Core utilizes Cross-Domain Communication. To do this in a secure manner both STREAMBOXY Core and your AddIn need to know each other's domains. STREAMBOXY Core attaches an URL Search Parameter to every Content URL to provide a content page with its currently loaded STREAMBOXY Core origin. To access this information, our Add-In packages provides a helper class. Please use the provided code snippet to get started.
 
 
 
@@ -63,7 +63,7 @@ The following Code Samples show you how to subscribe to Events in your AddIn.
 
 
 #### STREAMBOXY AddIn Message Types
-A STREAMBOXY Core Event (which is sent to your AddIn as well) always contains a message type to state which data was sent. After your Notice STREAMBOXY Core sends the current configuration (SessionStyle, Language, UserContext, SessionData) to your subscribed handlers. If a property is updated STREAMBOXY Core provides an update as well. The command type is used by your AddIn to send a command to the Core application. The following list (to be extended in the future) shows currently supported message types. You can find the identifier for VanillaJS integrations in brackets.
+A STREAMBOXY Core Event (which is sent to your AddIn as well) always contains a message type to state which data was sent. After your Notice STREAMBOXY Core sends the current configuration (SessionStyle, Language, UserContext, SessionData) to your subscribed handlers. If a property is updated STREAMBOXY Core provides an update as well. The command type is used by your AddIn to send a command to the Core application. The following list (to be extended in the future) shows currently supported message types.
 
 * Notice (0)
 * SessionStyle (1)
@@ -146,7 +146,7 @@ The target session Ids used in this sample can also be retrieved using the STREA
 STREAMBOXY Core listens to specific commands sent by your AddIn to control the Core application. The following commands are available (list to be extended in the future), you can find the required arguments in brackets.
 
 * NavigateToSession (sessionId)
-* ReadyState  (special command for STREAMBOXY Conferencing)
+* ReadyState - special command for STREAMBOXY Conferencing
 
 
 #### Angular using @streamboxy/add-ins
