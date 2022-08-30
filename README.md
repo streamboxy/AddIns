@@ -1,7 +1,7 @@
 # Add-Ins 
 
 ## General informations and data model
-You will find the general informations to the STREAMBOXY AddIn Model the data model of the events and the VanillaJS Documentation at the STREAMBOXY Docs here:
+You will find the general informations to the STREAMBOXY AddIn Model, the data model of the events and the VanillaJS Documentation at the STREAMBOXY Docs here:
 https://service.streamboxy.com/support/solutions/articles/50000087752-interaction-using-addin-events-commands
 
 
