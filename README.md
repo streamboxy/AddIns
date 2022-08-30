@@ -1,5 +1,9 @@
 # Add-Ins 
 
+## General informations and data model
+You will find the general informations to the STREAMBOXY AddIn Model and the data model of the events at the STREAMBOXY Docs here:
+https://service.streamboxy.com/support/solutions/articles/50000087752-interaction-using-addin-events-commands
+
 
 ## How to use AddIn Events & Commands?
 
@@ -18,27 +22,10 @@ Integrating into STREAMBOXY Core utilizes Cross-Domain Communication. To do this
 
 
 
-#### Vanilla JS
-
-```
-var coreURL = getOrigin();
-
-// Provide the currently used Streamboxy Stage URL origin, if a custom domain is used, use the custom domains URL origin
-// Streamboxy Core attaches the calling CoreURL (e.g. https://stage.streamboxy.com) as search param to your provided URL
-function getOrigin() {
-     var params = (new URL(document.location)).searchParams;
-     var encodedOrigin = params.get('origin');
-     var origin = decodeURIComponent(encodedOrigin);
-
-      return origin;
-}
-```
-
 #### Using @streamboxy/add-ins
 ```
 var origin = AddInHelper.parseOriginURLFromSearchParam('origin'));
 ```
-
 
 
 ### Register an AddIn
@@ -49,17 +36,6 @@ Before you can subscribe to new STREAMBOXY Core UI Events, you have to tell STRE
 In order to accomplish that, simply call the registerAddIn Method (make sure your call includes your used apiVersion - currently only "v1" is supported) or send a "Notice Event" by yourself.
 
 
-
-#### Vanilla JS
-```
-var coreURL = getOrigin();
-
-var noticeEvent = {
-  type: 0
-};
-
-window.parent.postMessage(noticeEvent, coreURL);
-```
 
 #### Using @streamboxy/add-ins
 
@@ -99,54 +75,7 @@ A STREAMBOXY Core Event (which is sent to your AddIn as well) always contains a 
 * BackstageStyle (7) - only in the backstage
 
 
-#### Vanilla JS
-```
-var coreURL = getOrigin();
 
-window.addEventListener('message', (event) => {
-    if (event.origin !== this._coreURL.origin) {
-      throw new Error('Will not process message by unknown origin.');
-    }
-
-    switch (event.data.type) {
-      case 0: {
-        break;
-      }
-      case 1: {
-       // Apply new Styling
-       // Access SessionStyle Object using event.data.data
-       this._styleService.update(event.data.data);
-        break;
-      }
-      case 2: {
-       // Apply new Language
-       // Access Language string using event.data.data
-        const langTag = event?.data.data?.split('-')[0] ?? event?.data.data;
-        this._languageService.switchLanguage(langTag);
-
-        break;
-      }
-      case 3: {
-       // Apply new UserContext
-       // Access UserContext Object using event.data.data
-        this._acs.changeRole(event?.data.data?.role);
-
-        break;
-      }
-      case 4: {
-       // Apply new SessionData
-       // Access SessionData Object using event.data.data
-
-        this.updateConfig(event.data.data);
-        break;
-      }
-      default: {
-        break;
-      }
-    }
-
-});
-```
 
 #### Angular using @streamboxy/add-ins
 ```
@@ -217,24 +146,8 @@ The target session Ids used in this sample can also be retrieved using the STREA
 STREAMBOXY Core listens to specific commands sent by your AddIn to control the Core application. The following commands are available (list to be extended in the future), you can find the required arguments in brackets.
 
 * NavigateToSession (sessionId)
+* ReadyState
 
-
-#### Vanilla JS
-```
-var coreURL = getOrigin();
-
-const targetSessionId = "<SBXSessionId>"
-
-const navigateToSessionEvent = {
-  type: 5,
-  data: {
-    command: 0,
-    args: [targetSessionId]
-  }
-};
-
-window.parent.postMessage(navigateToSessionEvent, coreURL);
-```
 
 #### Angular using @streamboxy/add-ins
 ```
