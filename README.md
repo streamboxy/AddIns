@@ -146,7 +146,7 @@ The target session Ids used in this sample can also be retrieved using the STREA
 STREAMBOXY Core listens to specific commands sent by your AddIn to control the Core application. The following commands are available (list to be extended in the future), you can find the required arguments in brackets.
 
 * NavigateToSession (sessionId)
-* ReadyState
+* ReadyState  (special command for STREAMBOXY Conferencing)
 
 
 #### Angular using @streamboxy/add-ins
